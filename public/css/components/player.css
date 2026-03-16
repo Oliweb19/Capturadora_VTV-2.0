@@ -1,0 +1,112 @@
+/* ============================================================
+   player.css – Video player estilo YouTube
+   ============================================================ */
+
+.player-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.video-main {
+    flex: 3;
+    min-width: 300px;
+}
+
+.video-main video {
+    width: 100%;
+    border-radius: var(--radius);
+    background: #000;
+    max-height: 70vh;
+}
+
+.player-controls-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 12px;
+    gap: 10px;
+}
+
+#player-title {
+    color: var(--bg);
+    font-size: 1.3rem;
+    flex: 1;
+}
+
+#player-close-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #2a2a3a;
+    color: var(--bg);
+    padding: 10px 16px;
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 14px;
+    transition: background var(--transition);
+}
+#player-close-btn:hover { background: #3a3a4a; }
+
+/* Sidebar */
+.video-sidebar {
+    flex: 1;
+    min-width: 240px;
+    max-height: 75vh;
+    overflow-y: auto;
+    background: #141428;
+    border-radius: var(--radius);
+    padding: 14px;
+}
+
+.video-sidebar h3 {
+    color: var(--bg);
+    font-size: 1rem;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.sidebar-item {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    background: #1e1e30;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    transition: background var(--transition);
+}
+
+.sidebar-item:hover { background: #2a2a44; }
+
+.sidebar-item.playing {
+    background: var(--color-secondary);
+    box-shadow: 0 0 8px rgba(71,47,154,0.5);
+}
+
+.sidebar-item img {
+    width: 96px;
+    height: 58px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.sidebar-item span {
+    color: var(--bg);
+    font-size: 0.8rem;
+    padding: 6px 6px 6px 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.4;
+}
+
+/* Responsive player */
+@media (max-width: 860px) {
+    .player-container { flex-direction: column; }
+    .video-sidebar { max-height: 360px; }
+}

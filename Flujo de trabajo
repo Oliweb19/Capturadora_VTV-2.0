@@ -1,0 +1,62 @@
+# Walkthrough – Refactorización MVC Capturadora VTV 2.0
+
+## Qué se hizo
+
+El proyecto fue completamente reorganizado bajo el patrón **MVC** con PHP basado en funciones, separación estricta de PHP/JS/CSS, y CSS por componentes.
+
+---
+
+## Nueva estructura de carpetas
+
+```
+Capturadora_VTV-2.0/
+├── index.php                         ← Router de login (actualizado)
+├── app/
+│   ├── config/
+│   │   ├── config.php                ← Constantes DB, BASE_URL, BASE_PATH
+│   │   └── database.php              ← get_db() PDO singleton
+│   ├── models/
+│   │   ├── UsuarioModel.php          ← usuario_validar_login, listar, crear, editar, desactivar
+│   │   └── VideoModel.php            ← listar, filtrar, paginar, thumb_url
+│   ├── controllers/
+│   │   ├── AuthController.php        ← auth_login, auth_logout, guards
+│   │   ├── UsuarioController.php     ← CRUD de usuarios
+│   │   ├── MaterialController.php    ← material_index
+│   │   └── ClipController.php        ← clip_index
+│   └── views/
+│       ├── layouts/ (head, navbar_user, navbar_admin)
+│       ├── auth/login.php
+│       ├── admin/usuarios.php
+│       └── user/ (material.php, clip.php)
+└── public/
+    ├── admin/usuarios.php            ← Router CRUD
+    ├── user/ (material.php, clip.php)
+    ├── api/ (auth, cerrar, stream, download_clip, thumbs)
+    ├── css/base/ (variables, reset, typography)
+    ├── css/components/ (11 archivos de componentes)
+    └── js/ (auth/login, admin/usuarios, user/material, user/clip)
+```
+
+---
+
+## URLs de acceso
+
+| Página | URL |
+|---|---|
+| Login | `http://localhost/Capturadora_VTV-2.0/` |
+| Panel usuario | `http://localhost/Capturadora_VTV-2.0/public/user/material.php` |
+| Editor de clips | `http://localhost/Capturadora_VTV-2.0/public/user/clip.php` |
+| Panel admin | `http://localhost/Capturadora_VTV-2.0/public/admin/usuarios.php` |
+
+> [!IMPORTANT]
+> Las carpetas **`Admin/`**, **`User/`** y **`BD/`** siguen existiendo pero ya no son necesarias. Se pueden eliminar manualmente una vez que verifiques que todo funciona correctamente.
+
+---
+
+## Decisiones de diseño
+
+- **Funciones PHP puras**: sin clases. Cada archivo usa prefijo ([usuario_](file:///c:/xampp/htdocs/Capturadora_VTV-2.0/app/controllers/UsuarioController.php#33-66), [video_](file:///c:/xampp/htdocs/Capturadora_VTV-2.0/app/models/VideoModel.php#81-97), [auth_](file:///c:/xampp/htdocs/Capturadora_VTV-2.0/app/controllers/AuthController.php#9-58)) para evitar colisiones.
+- **CSS por componentes**: cada vista importa solo lo que necesita (definido en `$head_data['css']`).
+- **Flash messages**: errores de login y CRUD usan `$_SESSION['flash']` en lugar de `alert()` JS.
+- **Guard functions**: [auth_requerir_sesion()](file:///c:/xampp/htdocs/Capturadora_VTV-2.0/app/controllers/AuthController.php#77-89) y [auth_requerir_admin()](file:///c:/xampp/htdocs/Capturadora_VTV-2.0/app/controllers/AuthController.php#90-100) protegen cada endpoint centralmente.
+- **APIs binarias** (`stream`, `download_clip`, `thumbs`) se mantienen como PHP puro sin vista HTML.

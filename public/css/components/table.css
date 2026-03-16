@@ -1,0 +1,81 @@
+/* ============================================================
+   table.css – Tabla de usuarios (panel admin)
+   ============================================================ */
+
+.table-wrapper {
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.users-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.97rem;
+}
+
+.users-table thead {
+    background: linear-gradient(90deg, #2a5298, #1e3c72);
+    color: #fff;
+}
+
+.users-table th {
+    padding: 16px 20px;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.users-table td {
+    padding: 14px 20px;
+    text-align: center;
+    color: #333;
+    border-bottom: 1px solid #eef0f4;
+    vertical-align: middle;
+}
+
+.users-table tbody tr:nth-child(even) {
+    background: #f8fafc;
+}
+
+.users-table tbody tr:hover {
+    background: #edf2fb;
+    transition: background 0.15s;
+}
+
+.table-empty {
+    text-align: center;
+    color: var(--muted);
+    padding: 28px;
+    font-style: italic;
+}
+
+.table-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+/* Badge de rol */
+.badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.badge-admin {
+    background: rgba(42, 82, 152, 0.12);
+    color: #1e3c72;
+}
+
+.badge-user {
+    background: rgba(71, 47, 154, 0.12);
+    color: var(--color-secondary);
+}

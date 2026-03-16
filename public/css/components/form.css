@@ -1,0 +1,123 @@
+/* ============================================================
+   form.css – Formularios compartidos
+   ============================================================ */
+
+.form-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 11px 14px;
+    border: 1.5px solid #bfc9d1;
+    border-radius: var(--radius-sm);
+    font-size: 0.97rem;
+    background: var(--bg);
+    color: var(--text);
+    outline: none;
+    transition: border var(--transition), box-shadow var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #2a5298;
+    box-shadow: 0 0 0 3px rgba(42,82,152,0.12);
+}
+
+/* Wrapper de contraseña con toggle */
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-wrapper input {
+    width: 100%;
+    padding-right: 44px;
+}
+
+.password-wrapper .toggle-password {
+    position: absolute;
+    right: 12px;
+    cursor: pointer;
+    color: var(--muted);
+    user-select: none;
+    font-size: 1.2rem;
+    transition: color var(--transition);
+}
+
+.password-wrapper .toggle-password:hover {
+    color: var(--color-primary);
+}
+
+/* Formulario de búsqueda en panel usuario */
+.search-form-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 14px 18px;
+    background: rgba(255,255,255,0.06);
+    border-radius: var(--radius);
+    margin-bottom: 22px;
+}
+
+.search-form-user .search-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.search-form-user label {
+    color: var(--bg);
+    font-size: 0.9rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.search-form-user input[type="date"],
+.search-form-user input[type="time"],
+.search-form-user select {
+    padding: 8px 12px;
+    border: 1px solid #555;
+    border-radius: var(--radius-sm);
+    background: #1e1e2e;
+    color: var(--bg);
+    font-size: 0.9rem;
+    color-scheme: dark;
+    outline: none;
+}
+
+/* Formulario de búsqueda en clip */
+.search-form-clip {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.search-form-clip input {
+    padding: 10px 14px;
+    border: 1px solid #555;
+    border-radius: var(--radius-sm);
+    background: #1e1e2e;
+    color: var(--bg);
+    font-size: 0.95rem;
+    outline: none;
+}

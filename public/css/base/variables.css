@@ -1,0 +1,35 @@
+/* ============================================================
+   variables.css – Tokens de diseño global
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap');
+
+:root {
+    /* Colores principales */
+    --color-primary:    #101637;
+    --color-secondary:  #472f9a;
+    --color-accent:     #fc343a;
+    --color-accent-2:   #ffcc00;
+
+    /* Fondos */
+    --fondo:    #0A0A0A;
+    --bg:       #f6f8fb;
+    --card:     #ffffff;
+
+    /* Texto */
+    --text:     #0b2545;
+    --muted:    #6b7280;
+
+    /* Botones */
+    --button:   #081535;
+
+    /* Sombras */
+    --shadow:   rgba(11, 37, 69, 0.08);
+    --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.15);
+
+    /* Bordes */
+    --radius:   10px;
+    --radius-sm: 6px;
+
+    /* Transiciones */
+    --transition: 0.2s ease;
+}

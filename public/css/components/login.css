@@ -1,0 +1,115 @@
+/* ============================================================
+   login.css – Estilos de la página de inicio de sesión
+   ============================================================ */
+
+.login-wrapper {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('/Capturadora_VTV-2.0/img/fondo-capturadora2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.login-card {
+    width: 440px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: var(--radius);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    padding: 48px 36px 36px;
+    text-align: center;
+    backdrop-filter: blur(4px);
+}
+
+.login-title {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--color-primary);
+    margin-bottom: 28px;
+    letter-spacing: -1px;
+}
+
+.login-error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    margin-bottom: 18px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: left;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-group .input-icon {
+    position: absolute;
+    left: 12px;
+    color: var(--color-primary);
+    font-size: 1.2rem;
+    pointer-events: none;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px 44px;
+    border: none;
+    border-bottom: 2px solid var(--color-primary);
+    border-radius: 5px;
+    background: transparent;
+    font-size: 1rem;
+    color: var(--color-primary);
+    outline: none;
+    transition: border-color var(--transition);
+}
+
+.input-group input::placeholder {
+    color: #7a8ab0;
+    font-weight: 500;
+}
+
+.input-group input:focus {
+    border-color: var(--color-secondary);
+}
+
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    cursor: pointer;
+    color: var(--color-primary);
+    user-select: none;
+    transition: color var(--transition);
+}
+
+.toggle-password:hover { color: var(--color-secondary); }
+
+.login-form .btn-primary {
+    margin-top: 8px;
+    padding: 14px;
+    font-size: 1rem;
+    border-radius: var(--radius-sm);
+}
+
+.login-footer {
+    position: absolute;
+    bottom: 14px;
+    width: 100%;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--color-primary);
+}
